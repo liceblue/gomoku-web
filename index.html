@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>五子棋（强AI）</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="title">五子棋 15×15（你黑先）</div>
+      <div class="controls">
+        <label class="lbl">
+          棋力
+          <select id="level">
+            <option value="0">简单</option>
+            <option value="1">普通</option>
+            <option value="2">困难</option>
+            <option value="3" selected>超强</option>
+            <option value="4">地狱</option>
+          </select>
+        </label>
+        <button id="undo">悔棋</button>
+        <button id="restart">重开</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="boardWrap">
+        <canvas id="board"></canvas>
+      </div>
+
+      <aside class="panel">
+        <div class="status" id="status">准备开始：轮到你（黑）</div>
+        <div class="hint">
+          点击/触摸落子。<br/>
+          规则：先连成五子者胜。<br/>
+          提示：地狱更强但更耗电、思考更久。<br/>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="./gomoku.js"></script>
+</body>
+</html>

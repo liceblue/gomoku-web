@@ -1,0 +1,77 @@
+:root{
+  --bg:#0f1115;
+  --card:#171a21;
+  --text:#e7eaf0;
+  --muted:#aab1c5;
+  --accent:#6aa6ff;
+  --board:#d8b06a;
+  --line:#2a1f14;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "PingFang SC", "Noto Sans CJK SC", Arial;
+}
+.app{min-height:100%; display:flex; flex-direction:column}
+.topbar{
+  display:flex; gap:12px; align-items:center; justify-content:space-between;
+  padding:12px 14px; background:var(--card); border-bottom:1px solid #242833;
+}
+.title{font-weight:700}
+.controls{display:flex; gap:10px; align-items:center; flex-wrap:wrap}
+.lbl{display:flex; gap:8px; align-items:center; color:var(--muted)}
+select,button{
+  font:inherit;
+  padding:8px 10px;
+  border-radius:10px;
+  border:1px solid #2a2f3b;
+  background:#11141b;
+  color:var(--text);
+}
+button{cursor:pointer}
+button:active{transform:translateY(1px)}
+.main{
+  flex:1;
+  display:grid;
+  grid-template-columns: minmax(280px, 1fr) 280px;
+  gap:14px;
+  padding:14px;
+}
+.boardWrap{
+  background:var(--card);
+  border:1px solid #242833;
+  border-radius:14px;
+  padding:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+#board{
+  width:min(92vw, 720px);
+  height:min(92vw, 720px);
+  background:var(--board);
+  border-radius:12px;
+  touch-action:manipulation;
+}
+.panel{
+  background:var(--card);
+  border:1px solid #242833;
+  border-radius:14px;
+  padding:12px;
+}
+.status{
+  font-weight:700;
+  margin-bottom:10px;
+}
+.hint{
+  color:var(--muted);
+  line-height:1.55;
+  font-size:14px;
+}
+@media (max-width: 880px){
+  .main{grid-template-columns:1fr; }
+  .panel{order:2}
+}
