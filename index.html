@@ -3,14 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>五子棋（强AI）</title>
+  <title>五子棋（强AI/联网对战）</title>
   <link rel="stylesheet" href="./style.css" />
+  <!-- Socket.IO 客户端（联网对战用） -->
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
 </head>
 <body>
   <div class="app">
     <header class="topbar">
-      <div class="title">五子棋 15×15（你黑先）</div>
+      <div class="title">五子棋 15×15</div>
+
       <div class="controls">
+        <label class="lbl">
+          模式
+          <select id="mode">
+            <option value="ai" selected>人机（强AI）</option>
+            <option value="online">联网对战（房间号）</option>
+          </select>
+        </label>
+
         <label class="lbl">
           棋力
           <select id="level">
@@ -21,6 +32,25 @@
             <option value="4">地狱</option>
           </select>
         </label>
+
+        <span class="sep"></span>
+
+        <label class="lbl">
+          昵称
+          <input id="name" placeholder="例如：iceblue" />
+        </label>
+
+        <button id="createRoom">创建房间</button>
+
+        <label class="lbl">
+          房间号
+          <input id="roomId" placeholder="例如：A1B2C3" />
+        </label>
+
+        <button id="joinRoom">加入房间</button>
+
+        <span class="sep"></span>
+
         <button id="undo">悔棋</button>
         <button id="restart">重开</button>
       </div>
@@ -34,9 +64,9 @@
       <aside class="panel">
         <div class="status" id="status">准备开始：轮到你（黑）</div>
         <div class="hint">
-          点击/触摸落子。<br/>
-          规则：先连成五子者胜。<br/>
-          提示：地狱更强但更耗电、思考更久。<br/>
+          人机模式：你黑先，点击/触摸落子。<br/>
+          联网模式：先创建房间把房间号发给朋友，或输入房间号加入。<br/>
+          联网对局以服务器为裁判，会自动同步双方棋盘。<br/>
         </div>
       </aside>
     </main>
