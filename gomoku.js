@@ -4,7 +4,7 @@
   // 本地：后端 npm start 默认就是 http://localhost:3000
   // 上线：把它改成 https://xxx.onrender.com（必须 https 才能在 https 页面稳定联机）
   // =========================
-  const SERVER_URL = "http://localhost:3000";
+  const SERVER_URL = "https://gomoku-server-smwp.onrender.com";
 
   // =========================
   // 常量
@@ -835,3 +835,4 @@
   aiReset();
   setStatus("准备开始：人机模式，轮到你（黑）");
 })();
+
